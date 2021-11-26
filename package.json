@@ -1,14 +1,15 @@
 {
-  "name": "temperatura-ideal",
-  "version": "1.0.0",
-  "description": "App para obtener la temperatura ideal de un aire acondicionado en una zona del mundo en particular",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "Chehin Juan Martin",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.17.1"
-  }
+    "name": "temperatura-ideal",
+    "version": "1.0.0",
+    "description": "App para obtener la temperatura ideal de un aire acondicionado en una zona del mundo en particular",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node ./index.js"
+    },
+    "author": "Chehin Juan Martin",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.17.1"
+    }
 }
