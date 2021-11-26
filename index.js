@@ -3,8 +3,6 @@ const app = express()
 const path = require('path');
 
 app.get('/', (req, res) => {
-    // res.sendFile('./views/pages/index.html');
-    console.log('dirname es : ', __dirname);
     res.sendFile(path.join(__dirname + '/views/pages/index.html'));
 })
 
