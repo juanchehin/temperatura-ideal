@@ -4,18 +4,19 @@
 var btn = document.getElementById('btnCiudad');
 btn.addEventListener('click', buscarTemperatura)
 
-var texto = document.getElementById('txtCiudad').value;
+var texto = document.getElementById('txtCiudad');
 
 
 function buscarTemperatura() {
     console.log("pasa buscarTemperatura");
 
-    console.log("texto es : ", texto);
+    console.log("texto es : ", texto.value);
+    texto = texto.value;
 
     // btn.style.display = 'none'
-    var url = `/buscar-temperatura/` + texto;
-    // var url = 'http://api.openweathermap.org/data/2.5/weather';
-    // var urlHarcodeado = 'http://api.openweathermap.org/data/2.5/weather?q=Paris&appid=c53be32b7bfe4bdf45b05c02e8e5a5ab';
+    // var url = `/buscar-temperatura/` + texto;
+    var url = `/buscar-temperatura/${texto}`;
+
     console.log("url es : ", url);
     requestAJAX(url)
 
