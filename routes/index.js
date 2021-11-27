@@ -10,7 +10,7 @@ router.get('/',
 );
 
 // 
-router.post('/buscar-temperatura/:test',
+router.post('/buscar-temperatura/:q',
     tempController.buscarTemperatura
 );
 
