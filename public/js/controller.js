@@ -1,5 +1,3 @@
-// const result = dotenv.config()
-
 // Cuando hago clic en btnCiudad se dispara la funcion nextItem
 var btn = document.getElementById('btnCiudad');
 btn.addEventListener('click', buscarTemperatura)
@@ -43,12 +41,19 @@ function requestAJAX(url) {
         console.log('response 2 es : ', response)
         return response.json()
     }).then(function(data) {
-        console.log('data 2 es : ', data)
+        console.log('La temperatura es es : ', data)
+        mostrarCartel(data.respuesta);
     }).catch(error => console.log('error es : ', error))
 }
 
 // Muestra un cartel de error en caso de que
 // la ciudad ingresada no exist
-function mostrarCartel() {
-    console.log('entra mostrarCartel');
+function mostrarCartel(temp) {
+    console.log('entra mostrarCartel', temp);
+
+    Swal.fire(
+        'Aire acondicionado',
+        '<h1>Configura tu aire a </h1>' + temp,
+        'info'
+    )
 }

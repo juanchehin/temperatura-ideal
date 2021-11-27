@@ -24,7 +24,7 @@ exports.buscarTemperatura = function(req, res, next) {
             // res.send('ok');
             console.log("entra then : ");
             // res.statusText('Actualizado');
-            res.json({ respuesta: response.data.main.temp })
+            res.json({ respuesta: response.data.main.temp }) // Restar 273.15 para obtener la temperatura en grados centigrados
 
         })
         .catch(function(error) {
