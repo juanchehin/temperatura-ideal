@@ -1,8 +1,6 @@
 const path = require('path');
 const axios = require('axios');
 require('dotenv').config();
-const Swal = require('sweetalert2')
-
 
 exports.index = function(req, res, next) {
     console.log("pasa index");
@@ -19,19 +17,20 @@ exports.buscarTemperatura = function(req, res, next) {
     API_KEY = process.env.API_KEY;
     var url = `http://api.openweathermap.org/data/2.5/weather?q=${ciudad}&appid=${API_KEY}`;
 
-    Swal.fire({
-        title: 'Error!',
-        text: 'Do you want to continue',
-        icon: 'error',
-        confirmButtonText: 'Cool'
-    })
-
     axios.get(url)
         .then(function(response) {
             // handle success
-            // console.log("respuesta es : ", response);
+            console.log("respuesta es : ", response.data.main.temp);
+            // res.send('ok');
+            console.log("entra then : ");
+            // res.statusText('Actualizado');
+            res.json({ respuesta: response.data.main.temp })
+
         })
-        .catch(function(error) {})
+        .catch(function(error) {
+            console.log("entra catch : ");
+            res.send('error');
+        })
         .then(function() {
             // always executed
         });

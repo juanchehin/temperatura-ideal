@@ -22,8 +22,8 @@ function buscarTemperatura() {
 
 }
 
-function requestAJAX(url, callback) {
-    var xhr = new XMLHttpRequest();
+function requestAJAX(url) {
+    /*var xhr = new XMLHttpRequest();
     xhr.onreadystatechange = function() {
         if (xhr.readyState == 4 && xhr.status == 200) {
             callback(JSON.parse(xhr.responseText))
@@ -31,4 +31,24 @@ function requestAJAX(url, callback) {
     }
     xhr.open('POST', url, true)
     xhr.send();
+    */
+
+    // **** Fetch ******
+    fetch(url, {
+        method: 'post',
+        headers: {
+            "Content-type": "application/x-www-form-urlencoded; charset=UTF-8"
+        }
+    }).then(function(response) {
+        console.log('response 2 es : ', response)
+        return response.json()
+    }).then(function(data) {
+        console.log('data 2 es : ', data)
+    }).catch(error => console.log('error es : ', error))
+}
+
+// Muestra un cartel de error en caso de que
+// la ciudad ingresada no exist
+function mostrarCartel() {
+    console.log('entra mostrarCartel');
 }
