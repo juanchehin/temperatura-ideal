@@ -8,10 +8,7 @@ exports.index = function(req, res, next) {
     res.sendFile(path.join(__dirname + '/../views/pages/index.html'));
 };
 
-exports.buscarTemperatura = function(req, res, next) {
-    console.log("pasa obtenerTemperatura");
-
-    console.log("req es : ", req.params);
+exports.buscarTemperatura = function(req, res) {
 
     ciudad = req.params.q;
     API_KEY = process.env.API_KEY;
@@ -20,15 +17,12 @@ exports.buscarTemperatura = function(req, res, next) {
     axios.get(url)
         .then(function(response) {
             // handle success
-            console.log("respuesta es : ", response.data.main.temp);
-            // res.send('ok');
-            console.log("entra then : ");
-            // res.statusText('Actualizado');
-            res.json({ respuesta: response.data.main.temp }) // Restar 273.15 para obtener la temperatura en grados centigrados
-
+            temperatura = response.data.main.temp;
+            temperaturaGrados = temperatura - 273 - 12; // Temperatura en grados y con 12° de diferencia que en el ambiente
+            temperaturaGrados = Math.trunc(temperaturaGrados);
+            res.json({ respuesta: temperaturaGrados })
         })
         .catch(function(error) {
-            console.log("entra catch : ");
             res.send('error');
         })
         .then(function() {
