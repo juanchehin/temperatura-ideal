@@ -3,8 +3,6 @@ const axios = require('axios');
 require('dotenv').config();
 
 exports.index = function(req, res, next) {
-    console.log("pasa index");
-
     res.sendFile(path.join(__dirname + '/../views/pages/index.html'));
 };
 

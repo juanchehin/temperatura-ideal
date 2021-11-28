@@ -14,8 +14,4 @@ router.post('/buscar-temperatura/:q',
     tempController.buscarTemperatura
 );
 
-// app.get('/', (req, res) => {
-//     res.sendFile(path.join(__dirname + '/views/pages/index.html'));
-// })
-
 module.exports = router;

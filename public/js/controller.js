@@ -31,11 +31,9 @@ function request(url) {
 }
 
 function mostrarCartelExito(temp) {
-    console.log('entra mostrarCartel', temp);
-
     Swal.fire(
         'Aire acondicionado',
-        '<h1>Configura tu aire a </h1>' + temp,
+        '<h2>Configura tu aire a </h2><h1>' + temp + '°C</h1>',
         'info'
     )
 }
